@@ -9,6 +9,7 @@ export declare class DefaultFormatter implements NouiFormatter {
     from(value: string): number;
 }
 export declare class NouisliderComponent implements ControlValueAccessor, OnInit, OnChanges {
+    private platformId;
     private el;
     slider: any;
     handles: any[];
@@ -36,8 +37,9 @@ export declare class NouisliderComponent implements ControlValueAccessor, OnInit
     private value;
     private onChange;
     private onTouched;
-    constructor(el: ElementRef);
+    constructor(platformId: Object, el: ElementRef);
     ngOnInit(): void;
+    initialize(): void;
     ngOnChanges(changes: any): void;
     toValues(values: string[]): any | any[];
     writeValue(value: any): void;

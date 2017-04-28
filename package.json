@@ -71,5 +71,9 @@
     "@angular/common": "^4.0.0",
     "@angular/core": "^4.0.0",
     "nouislider": "^9.0.0"
+  },
+  "dependencies": {
+    "@angular/compiler-cli": "^4.1.0",
+    "@angular/platform-server": "^4.1.0"
   }
 }
