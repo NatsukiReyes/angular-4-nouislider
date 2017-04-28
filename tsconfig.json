@@ -8,7 +8,9 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "target": "es5"
+    "target": "es5",
+    "skipLibCheck": true
+
   },
   "exclude": [
     "node_modules"
