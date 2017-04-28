@@ -8,13 +8,14 @@ import {
   OnInit,
   OnChanges,
   Output,
-  NgModule,
+  NgModule, Inject, PLATFORM_ID,
 } from '@angular/core';
 import {
   ControlValueAccessor,
   FormControl,
   NG_VALUE_ACCESSOR
 } from '@angular/forms';
+import {isPlatformBrowser} from "@angular/common";
 
 export interface NouiFormatter {
   to(value: number): string;
@@ -82,9 +83,14 @@ export class NouisliderComponent implements ControlValueAccessor, OnInit, OnChan
   private onChange: any = Function.prototype;
   private onTouched: any = Function.prototype;
 
-  constructor(private el: ElementRef) { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private el: ElementRef) { }
 
   ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.initialize();
+    }
+  }
+  initialize(): void {
     let inputsConfig = JSON.parse(JSON.stringify({
       behaviour: this.behaviour,
       connect: this.connect,
